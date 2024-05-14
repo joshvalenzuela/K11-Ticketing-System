@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class userCore {
     public static Scanner sc = new Scanner(System.in);
-    public static String[] sectionA = new String[10];
+    public static String[] sectionA = new String[100];
     public String[] readSeatFile(String fileName) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
@@ -21,8 +21,8 @@ public class userCore {
         return sectionA;
     }
 
-    public void savetoFile(String[] arr) throws IOException {
-        BufferedWriter writer = new BufferedWriter(new FileWriter("myFile.txt", false));
+    public void savetoFile(String[] arr, String fileName) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false));
         for (String s : arr) {
             writer.write(s);
             writer.newLine();
