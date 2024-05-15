@@ -4,6 +4,7 @@
  */
 package k11finalsplf;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
@@ -19,16 +20,18 @@ import javax.swing.*;
 public class movieTicketUI extends javax.swing.JFrame {
     static String[] sectionA;
     boolean confirmBool;
-    String userName;
+    public String userName;
     JRadioButton[] buttons;
     userCore obj = new userCore();
     static String globalFileName;
+    static String movieName;
     
     /**
      * Creates new form movieTicketUI
      */
-    public movieTicketUI(String fileName) {
+    public movieTicketUI(String fileName, String movie) {
         globalFileName = fileName;
+        movieName = movie;
         sectionA = obj.readSeatFile(fileName);
         System.out.println(Arrays.toString(sectionA));
         
@@ -922,6 +925,11 @@ public class movieTicketUI extends javax.swing.JFrame {
         buttons[97] = A98;
         buttons[98] = A99;
         buttons[99] = A100;
+        for (int i = 0; i < buttons.length; i++) {
+            if (!(Objects.equals(sectionA[i], ("A" + (i + 1) )))) {
+                buttons[i].setForeground(Color.RED);
+            }
+        }
 
         pack();
         setLocationRelativeTo(null);
@@ -934,16 +942,17 @@ public class movieTicketUI extends javax.swing.JFrame {
                 if (Objects.equals(sectionA[i], ("A" + (i + 1) ))) {
                     confirmBool = (0 == (JOptionPane.showConfirmDialog(this, "This seat is free. Would you like to take it?")));
                     if (confirmBool) {
-                        userName = JOptionPane.showInputDialog(this, "Please state your name: ");
-                        sectionA[i] = "A" + (i + 1) + "-"+ userName;
-                        confirmBool = false;
-                        try {
-                            obj.savetoFile(sectionA, globalFileName);
-                            JOptionPane.showMessageDialog(this, "Success! You have now booked a seat.");
-                        } catch (IOException e2) {
-                            System.out.println("Error: " + e2);
-                            System.exit(0);
+                        while (true) {
+                            userName = JOptionPane.showInputDialog(this, "Please state your name: ");
+                            if (userName != null) {
+                                break;
+                            }
                         }
+                        String seatNumber = "A" + (i + 1) + "-"+ userName;
+                        obj.movieAddtoCart(i, seatNumber, movieName);
+                        confirmBool = false;
+                        
+                        this.dispose();
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "This seat is already taken. Please select a different seat.");

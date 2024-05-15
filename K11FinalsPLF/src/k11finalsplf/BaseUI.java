@@ -4,6 +4,8 @@
  */
 package k11finalsplf;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Josh
@@ -91,6 +93,7 @@ public class BaseUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -119,8 +122,9 @@ public class BaseUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(BaseUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        userCore obj = new userCore();
         /* Create and display the form */
+        obj.userCoreStart();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new BaseUI().setVisible(true);
