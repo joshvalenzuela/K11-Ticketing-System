@@ -1,16 +1,13 @@
 package k11finalsplf;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
-public class userCore extends javax.swing.JFrame {
+public class userCore {
     public static Scanner sc = new Scanner(System.in);
     public static String[] sectionA = new String[100];
     public static String[] sectionB = new String[100];
     public static String[] sectionC = new String[100];
-    public static String[] tempSection = new String[100];
     public static ArrayList<String> itemCart = new ArrayList<>();
     
     public void userCoreStart() {
@@ -47,21 +44,15 @@ public class userCore extends javax.swing.JFrame {
     }
     
     public String[] readSeatFile(String fileName) {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
-            String line = reader.readLine();
-            int readcounter = 0;
-
-            tempSection[readcounter++] = line;
-            while ((line = reader.readLine()) != null) {
-                tempSection[readcounter++] = line;
-            }
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("Error, Please contact Program Admin. : " + e);
-            System.exit(0);
+        if (fileName.equals("godfatherSeats.txt")) {
+            return sectionA;
+        } else if (fileName.equals("movie2.txt")) {
+            return sectionB;
+        } else if (fileName.equals("movie3.txt")){
+            return sectionC;
+        } else {
+            return sectionA;
         }
-        return tempSection;
     }
 
     public void savetoFile(String fileName) throws IOException {
@@ -98,18 +89,6 @@ public class userCore extends javax.swing.JFrame {
     }
     
     public void movieAddtoCart(int index, String seatNumber, String movieName){
-        for (String i : itemCart) {
-            if (i.startsWith(movieName + ": A" + (index + 1))) {
-                JOptionPane.showMessageDialog(this, "This seat is already in your cart. Please select a different seat."); 
-
-                java.awt.EventQueue.invokeLater(new Runnable() {
-                    public void run() {
-                        new movieSelectionUI().setVisible(true);
-                   }
-                });
-                return;
-            }
-        }
         if (movieName.equals("Godfather")) {
             sectionA[index] = seatNumber;
         } else if (movieName.equals("Movie 2")) {

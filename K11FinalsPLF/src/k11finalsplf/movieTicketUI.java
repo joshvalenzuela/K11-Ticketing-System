@@ -5,7 +5,6 @@
 package k11finalsplf;
 
 import java.awt.Color;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
 import javax.swing.JOptionPane;
@@ -23,14 +22,12 @@ public class movieTicketUI extends javax.swing.JFrame {
     public String userName;
     JRadioButton[] buttons;
     userCore obj = new userCore();
-    static String globalFileName;
     static String movieName;
     
     /**
      * Creates new form movieTicketUI
      */
     public movieTicketUI(String fileName, String movie) {
-        globalFileName = fileName;
         movieName = movie;
         sectionA = obj.readSeatFile(fileName);
         System.out.println(Arrays.toString(sectionA));
@@ -58,7 +55,7 @@ public class movieTicketUI extends javax.swing.JFrame {
         A8 = new javax.swing.JRadioButton();
         A9 = new javax.swing.JRadioButton();
         A10 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        confirmButton = new javax.swing.JButton();
         label1 = new java.awt.Label();
         A11 = new javax.swing.JRadioButton();
         A12 = new javax.swing.JRadioButton();
@@ -183,8 +180,8 @@ public class movieTicketUI extends javax.swing.JFrame {
         buttonGroup1.add(A10);
         A10.setText("A10");
 
-        jButton1.setText("Confirm");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        confirmButton.setText("Confirm");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seatConfirm(evt);
             }
@@ -472,7 +469,7 @@ public class movieTicketUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(350, 350, 350))
             .addGroup(layout.createSequentialGroup()
                 .addGap(120, 120, 120)
@@ -816,7 +813,7 @@ public class movieTicketUI extends javax.swing.JFrame {
                     .addComponent(A100)
                     .addComponent(A97))
                 .addGap(59, 59, 59)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
 
@@ -944,9 +941,17 @@ public class movieTicketUI extends javax.swing.JFrame {
                     if (confirmBool) {
                         while (true) {
                             userName = JOptionPane.showInputDialog(this, "Please state your name: ");
-                            if (userName != null) {
+                            if (userName == null) {
                                 break;
                             }
+                            if (!"".equals(userName.strip())) {
+                                
+                                break;
+                            }
+                            JOptionPane.showMessageDialog(this, "Name cannot be empty please input correctly");
+                        }
+                        if (userName == null) {
+                            break;
                         }
                         String seatNumber = "A" + (i + 1) + "-"+ userName;
                         obj.movieAddtoCart(i, seatNumber, movieName);
@@ -1096,7 +1101,7 @@ public class movieTicketUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton A98;
     private javax.swing.JRadioButton A99;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton confirmButton;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }

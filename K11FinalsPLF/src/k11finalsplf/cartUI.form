@@ -24,8 +24,10 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Component id="removeButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton3" min="-2" pref="135" max="-2" attributes="0"/>
+              <Component id="checkoutButton" min="-2" pref="135" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -35,11 +37,11 @@
                       <Component id="jScrollPane1" min="-2" pref="299" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton1" linkSize="1" pref="180" max="32767" attributes="0"/>
-                          <Component id="jButton2" linkSize="1" max="32767" attributes="0"/>
+                          <Component id="addMovie" linkSize="1" pref="180" max="32767" attributes="0"/>
+                          <Component id="addFood" linkSize="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="totalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="47" max="32767" attributes="0"/>
           </Group>
@@ -51,16 +53,19 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButton1" linkSize="2" min="-2" pref="95" max="-2" attributes="0"/>
+                      <Component id="addMovie" linkSize="2" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButton2" linkSize="2" min="-2" pref="108" max="-2" attributes="0"/>
+                      <Component id="addFood" linkSize="2" min="-2" pref="108" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" pref="290" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="totalLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="25" max="32767" attributes="0"/>
-              <Component id="jButton3" min="-2" pref="64" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="checkoutButton" alignment="3" min="-2" pref="64" max="-2" attributes="0"/>
+                  <Component id="removeButton" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -81,14 +86,14 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DefaultListModel&lt;String&gt; listModel = new DefaultListModel&lt;&gt;();&#xa;total = 0;&#xa;for (String i : obj.itemCart) {&#xa;    if (i.startsWith(&quot;Godfather&quot;)) {&#xa;        int price = 150;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 2&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 3&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Popcorn&quot;)) {&#xa;        int price = 50;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    }&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="listModel = new DefaultListModel&lt;&gt;();&#xa;total = 0;&#xa;for (String i : obj.itemCart) {&#xa;    if (i.startsWith(&quot;Godfather&quot;)) {&#xa;        int price = 150;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 2&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 3&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Popcorn&quot;)) {&#xa;        int price = 50;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    }&#xa;}"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jList1 = new javax.swing.JList&lt;&gt;(listModel);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="addMovie">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -96,10 +101,10 @@
         <Property name="text" type="java.lang.String" value="ADD MOVIE "/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addMovieActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="addFood">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="0"/>
@@ -107,15 +112,15 @@
         <Property name="text" type="java.lang.String" value="ADD FOOD"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="checkoutButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="CHECKOUT"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkoutButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="totalLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="0"/>
@@ -124,6 +129,14 @@
           <Connection code="&quot;Total: P&quot; + total" type="code"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="removeButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="REMOVE ITEM"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

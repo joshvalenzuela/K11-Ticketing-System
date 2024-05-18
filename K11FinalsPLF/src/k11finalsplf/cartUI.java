@@ -17,6 +17,7 @@ public class cartUI extends javax.swing.JFrame {
     /**
      * Creates new form cartUI
      */
+    private static DefaultListModel<String> listModel;
     userCore obj = new userCore();
     public static double total;
     public cartUI() {
@@ -34,7 +35,7 @@ public class cartUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        DefaultListModel<String> listModel = new DefaultListModel<>();
+        listModel = new DefaultListModel<>();
         total = 0;
         for (String i : obj.itemCart) {
             if (i.startsWith("Godfather")) {
@@ -56,10 +57,11 @@ public class cartUI extends javax.swing.JFrame {
             }
         }
         jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        addMovie = new javax.swing.JButton();
+        addFood = new javax.swing.JButton();
+        checkoutButton = new javax.swing.JButton();
+        totalLabel = new javax.swing.JLabel();
+        removeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,34 +69,43 @@ public class cartUI extends javax.swing.JFrame {
         jList1.setModel(listModel);
         jScrollPane1.setViewportView(jList1);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton1.setText("ADD MOVIE ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addMovie.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        addMovie.setText("ADD MOVIE ");
+        addMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addMovieActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jButton2.setText("ADD FOOD");
+        addFood.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        addFood.setText("ADD FOOD");
 
-        jButton3.setText("CHECKOUT");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        checkoutButton.setText("CHECKOUT");
+        checkoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                checkoutButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Total: P" + total);
+        totalLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        totalLabel.setText("Total: P" + total);
+
+        removeButton.setText("REMOVE ITEM");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addComponent(removeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(checkoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -103,13 +114,13 @@ public class cartUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel1))
+                            .addComponent(addMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(addFood, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(totalLabel))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {addFood, addMovie});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,24 +128,26 @@ public class cartUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(addFood, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(totalLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {addFood, addMovie});
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMovieActionPerformed
         // TODO add your handling code here:
         this.dispose();
 
@@ -145,9 +158,9 @@ public class cartUI extends javax.swing.JFrame {
             }
             
         });
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addMovieActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
         // TODO add your handling code here:
         while (true) {
             try {
@@ -185,7 +198,49 @@ public class cartUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Error! Please input only numeric values."); 
             }
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_checkoutButtonActionPerformed
+
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        // TODO add your handling code here:
+        int index = jList1.getSelectedIndex();
+        
+        if (index != -1) {    
+            if ((obj.itemCart.get(index)).startsWith("Godfather")) {
+                String stripped = obj.itemCart.get(index).replace("Godfather: ", "");
+                for (int i = 0; i < obj.sectionA.length; i++) {
+                    if (stripped.equals(obj.sectionA[i])) {
+                        obj.sectionA[i] = "A" + (i + 1);
+                        obj.itemCart.remove(index);
+                    }
+                }
+            } else if ((obj.itemCart.get(index)).startsWith("Movie 2")) {
+                String stripped = obj.itemCart.get(index).replace("Movie 2: ", "");
+                for (int i = 0; i < obj.sectionB.length; i++) {
+                    if (stripped.equals(obj.sectionB[i])) {
+                        obj.sectionB[i] = "A" + (i + 1);
+                        obj.itemCart.remove(index);
+                    }
+                }
+            } else if ((obj.itemCart.get(index)).startsWith("Movie 3")) {
+                String stripped = obj.itemCart.get(index).replace("Movie 3: ", "");
+                for (int i = 0; i < obj.sectionC.length; i++) {
+                    if (stripped.equals(obj.sectionC[i])) {
+                        obj.sectionC[i] = "A" + (i + 1);
+                        obj.itemCart.remove(index);
+                    }
+                }
+            }
+            
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new cartUI().setVisible(true);
+                }
+            });
+            this.dispose();
+        }
+        
+        
+    }//GEN-LAST:event_removeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,11 +278,12 @@ public class cartUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton addFood;
+    private javax.swing.JButton addMovie;
+    private javax.swing.JButton checkoutButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton removeButton;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }

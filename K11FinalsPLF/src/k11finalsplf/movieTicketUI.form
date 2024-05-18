@@ -29,7 +29,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="118" max="-2" attributes="0"/>
+              <Component id="confirmButton" min="-2" pref="118" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -395,7 +395,7 @@
                   <Component id="A97" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="40" max="-2" attributes="0"/>
+              <Component id="confirmButton" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -485,7 +485,7 @@
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="buttons = new JRadioButton[100];&#xa;buttons[0] = A1;&#xa;buttons[1] = A2;&#xa;buttons[2] = A3;&#xa;buttons[3] = A4;&#xa;buttons[4] = A5;&#xa;buttons[5] = A6;&#xa;buttons[6] = A7;&#xa;buttons[7] = A8;&#xa;buttons[8] = A9;&#xa;buttons[9] = A10;&#xa;buttons[10] = A11;&#xa;buttons[11] = A12;&#xa;buttons[12] = A13;&#xa;buttons[13] = A14;&#xa;buttons[14] = A15;&#xa;buttons[15] = A16;&#xa;buttons[16] = A17;&#xa;buttons[17] = A18;&#xa;buttons[18] = A19;&#xa;buttons[19] = A20;&#xa;buttons[20] = A21;&#xa;buttons[21] = A22;&#xa;buttons[22] = A23;&#xa;buttons[23] = A24;&#xa;buttons[24] = A25;&#xa;buttons[25] = A26;&#xa;buttons[26] = A27;&#xa;buttons[27] = A28;&#xa;buttons[28] = A29;&#xa;buttons[29] = A30;&#xa;buttons[30] = A31;&#xa;buttons[31] = A32;&#xa;buttons[32] = A33;&#xa;buttons[33] = A34;&#xa;buttons[34] = A35;&#xa;buttons[35] = A36;&#xa;buttons[36] = A37;&#xa;buttons[37] = A38;&#xa;buttons[38] = A39;&#xa;buttons[39] = A40;&#xa;buttons[40] = A41;&#xa;buttons[41] = A42;&#xa;buttons[42] = A43;&#xa;buttons[43] = A44;&#xa;buttons[44] = A45;&#xa;buttons[45] = A46;&#xa;buttons[46] = A47;&#xa;buttons[47] = A48;&#xa;buttons[48] = A49;&#xa;buttons[49] = A50;&#xa;buttons[50] = A51;&#xa;buttons[51] = A52;&#xa;buttons[52] = A53;&#xa;buttons[53] = A54;&#xa;buttons[54] = A55;&#xa;buttons[55] = A56;&#xa;buttons[56] = A57;&#xa;buttons[57] = A58;&#xa;buttons[58] = A59;&#xa;buttons[59] = A60;&#xa;buttons[60] = A61;&#xa;buttons[61] = A62;&#xa;buttons[62] = A63;&#xa;buttons[63] = A64;&#xa;buttons[64] = A65;&#xa;buttons[65] = A66;&#xa;buttons[66] = A67;&#xa;buttons[67] = A68;&#xa;buttons[68] = A69;&#xa;buttons[69] = A70;&#xa;buttons[70] = A71;&#xa;buttons[71] = A72;&#xa;buttons[72] = A73;&#xa;buttons[73] = A74;&#xa;buttons[74] = A75;&#xa;buttons[75] = A76;&#xa;buttons[76] = A77;&#xa;buttons[77] = A78;&#xa;buttons[78] = A79;&#xa;buttons[79] = A80;&#xa;buttons[80] = A81;&#xa;buttons[81] = A82;&#xa;buttons[82] = A83;&#xa;buttons[83] = A84;&#xa;buttons[84] = A85;&#xa;buttons[85] = A86;&#xa;buttons[86] = A87;&#xa;buttons[87] = A88;&#xa;buttons[88] = A89;&#xa;buttons[89] = A90;&#xa;buttons[90] = A91;&#xa;buttons[91] = A92;&#xa;buttons[92] = A93;&#xa;buttons[93] = A94;&#xa;buttons[94] = A95;&#xa;buttons[95] = A96;&#xa;buttons[96] = A97;&#xa;buttons[97] = A98;&#xa;buttons[98] = A99;&#xa;buttons[99] = A100;&#xa;for (int i = 0; i &lt; buttons.length; i++) {&#xa;    if (!(Objects.equals(sectionA[i], (&quot;A&quot; + (i + 1) )))) {&#xa;        buttons[i].setForeground(Color.RED);&#xa;    }&#xa;}"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="confirmButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirm"/>
       </Properties>

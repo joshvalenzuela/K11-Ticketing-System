@@ -4,8 +4,6 @@
  */
 package k11finalsplf;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Josh
@@ -28,22 +26,22 @@ public class BaseUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        userInterfaceButton = new javax.swing.JButton();
+        adminInterfaceButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("USER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        userInterfaceButton.setText("USER");
+        userInterfaceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                userInterfaceButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("ADMIN");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        adminInterfaceButton.setText("ADMIN");
+        adminInterfaceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                adminInterfaceButtonActionPerformed(evt);
             }
         });
 
@@ -54,30 +52,30 @@ public class BaseUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(127, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(adminInterfaceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userInterfaceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(120, 120, 120))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {adminInterfaceButton, userInterfaceButton});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userInterfaceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(adminInterfaceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {adminInterfaceButton, userInterfaceButton});
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void userInterfaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInterfaceButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
 
@@ -89,12 +87,12 @@ public class BaseUI extends javax.swing.JFrame {
             
         });
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_userInterfaceButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void adminInterfaceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminInterfaceButtonActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_adminInterfaceButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,7 +131,7 @@ public class BaseUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton adminInterfaceButton;
+    private javax.swing.JButton userInterfaceButton;
     // End of variables declaration//GEN-END:variables
 }
