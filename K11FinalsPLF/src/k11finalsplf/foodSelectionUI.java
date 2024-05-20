@@ -10,10 +10,12 @@ package k11finalsplf;
  */
 public class foodSelectionUI extends javax.swing.JFrame {
 
+    private static userCore obj = new userCore();
     /**
      * Creates new form foodSelectionUI
      */
     public foodSelectionUI() {
+        
         initComponents();
     }
 
@@ -26,21 +28,138 @@ public class foodSelectionUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popcornImage = new javax.swing.JLabel();
+        popcornLabel = new javax.swing.JLabel();
+        popcornAdd = new javax.swing.JButton();
+        hotdogImage = new javax.swing.JLabel();
+        hotdogLabel = new javax.swing.JLabel();
+        hotdogAdd = new javax.swing.JButton();
+        cokeImage = new javax.swing.JLabel();
+        cokeLabel = new javax.swing.JLabel();
+        cokeAdd = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        popcornImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/k11finalsplf/popcorn.png"))); // NOI18N
+
+        popcornLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        popcornLabel.setText("Popcorn P50");
+
+        popcornAdd.setText("Order");
+        popcornAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                popcornAddActionPerformed(evt);
+            }
+        });
+
+        hotdogImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/k11finalsplf/hotdog.png"))); // NOI18N
+
+        hotdogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        hotdogLabel.setText("Hotdog P45");
+
+        hotdogAdd.setText("Order");
+        hotdogAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hotdogAddActionPerformed(evt);
+            }
+        });
+
+        cokeImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/k11finalsplf/coke.png"))); // NOI18N
+
+        cokeLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cokeLabel.setText("Coke P25");
+
+        cokeAdd.setText("Order");
+        cokeAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cokeAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(popcornAdd)
+                    .addComponent(popcornLabel)
+                    .addComponent(popcornImage))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(hotdogAdd)
+                    .addComponent(hotdogLabel)
+                    .addComponent(hotdogImage))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cokeAdd)
+                    .addComponent(cokeLabel)
+                    .addComponent(cokeImage))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cokeImage)
+                        .addGap(12, 12, 12)
+                        .addComponent(cokeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cokeAdd))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(hotdogImage)
+                        .addGap(12, 12, 12)
+                        .addComponent(hotdogLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(hotdogAdd))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(popcornImage)
+                        .addGap(12, 12, 12)
+                        .addComponent(popcornLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(popcornAdd)))
+                .addContainerGap(235, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void popcornAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_popcornAddActionPerformed
+        // TODO add your handling code here:
+        obj.foodAddtoCart("Popcorn");
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new cartUI().setVisible(true);
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_popcornAddActionPerformed
+
+    private void hotdogAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotdogAddActionPerformed
+        // TODO add your handling code here:
+        obj.foodAddtoCart("Hotdog");
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new cartUI().setVisible(true);
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_hotdogAddActionPerformed
+
+    private void cokeAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cokeAddActionPerformed
+        // TODO add your handling code here:
+        obj.foodAddtoCart("Coke");
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new cartUI().setVisible(true);
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_cokeAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +197,14 @@ public class foodSelectionUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cokeAdd;
+    private javax.swing.JLabel cokeImage;
+    private javax.swing.JLabel cokeLabel;
+    private javax.swing.JButton hotdogAdd;
+    private javax.swing.JLabel hotdogImage;
+    private javax.swing.JLabel hotdogLabel;
+    private javax.swing.JButton popcornAdd;
+    private javax.swing.JLabel popcornImage;
+    private javax.swing.JLabel popcornLabel;
     // End of variables declaration//GEN-END:variables
 }

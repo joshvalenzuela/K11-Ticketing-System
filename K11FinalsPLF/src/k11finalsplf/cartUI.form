@@ -86,7 +86,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="listModel = new DefaultListModel&lt;&gt;();&#xa;total = 0;&#xa;for (String i : obj.itemCart) {&#xa;    if (i.startsWith(&quot;Godfather&quot;)) {&#xa;        int price = 150;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 2&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 3&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Popcorn&quot;)) {&#xa;        int price = 50;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    }&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="listModel = new DefaultListModel&lt;&gt;();&#xa;total = 0;&#xa;for (String i : obj.itemCart) {&#xa;    if (i.startsWith(&quot;Godfather&quot;)) {&#xa;        int price = 150;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 2&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 3&quot;)) {&#xa;        int price = 200;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Popcorn&quot;)) {&#xa;        int price = 50;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Hotdog&quot;)) {&#xa;        int price = 45;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Coke&quot;)) {&#xa;        int price = 25;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    }&#xa;}"/>
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jList1 = new javax.swing.JList&lt;&gt;(listModel);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -111,6 +111,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="ADD FOOD"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addFoodActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="checkoutButton">
       <Properties>

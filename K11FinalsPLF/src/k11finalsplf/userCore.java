@@ -1,6 +1,8 @@
 package k11finalsplf;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class userCore {
@@ -39,6 +41,7 @@ public class userCore {
             }
             reader3.close();
         } catch (IOException e) {
+            System.out.println("Seat files is missing! Contact admin.");
             e.printStackTrace();
         }
     }
@@ -103,5 +106,41 @@ public class userCore {
                 new cartUI().setVisible(true);
             }
         });
+    }
+    
+    public void foodAddtoCart(String foodName) { 
+        itemCart.add(foodName);
+    }
+    
+    public void saveReceipt(ArrayList<String> cart, double total, double change, double userCash) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter("receipts.txt", true));
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+            Date date = new Date(); 
+            writer.write("// Start of Receipt //");
+            writer.newLine();
+
+            for (String i : cart) {
+                writer.write(i);
+                writer.newLine();
+            }
+
+            writer.write(formatter.format(date));
+            writer.newLine();
+            writer.write("Cash given: " + userCash);
+            writer.newLine();
+            writer.write("Total: " + total);
+            writer.newLine();
+            writer.write("Change: " + change);
+            writer.newLine();
+            writer.write("// End of Receipt //");
+            writer.newLine();
+            writer.newLine();
+
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -54,6 +54,14 @@ public class cartUI extends javax.swing.JFrame {
                 int price = 50;
                 listModel.addElement(i + " P" + price);
                 total += price;
+            } else if (i.startsWith("Hotdog")) {
+                int price = 45;
+                listModel.addElement(i + " P" + price);
+                total += price;
+            } else if (i.startsWith("Coke")) {
+                int price = 25;
+                listModel.addElement(i + " P" + price);
+                total += price;
             }
         }
         jList1 = new javax.swing.JList<>();
@@ -79,6 +87,11 @@ public class cartUI extends javax.swing.JFrame {
 
         addFood.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         addFood.setText("ADD FOOD");
+        addFood.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addFoodActionPerformed(evt);
+            }
+        });
 
         checkoutButton.setText("CHECKOUT");
         checkoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -181,10 +194,10 @@ public class cartUI extends javax.swing.JFrame {
                                     obj.savetoFile("movie2.txt");
                                 } else if (i.startsWith("Movie 3")) {
                                     obj.savetoFile("movie3.txt");
-                                } else if (i.startsWith("Popcorn")) {
-                                    
-                                }
-                            }   
+                                } 
+                                
+                            }
+                            obj.saveReceipt(obj.itemCart, total, change, userCash);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -229,6 +242,8 @@ public class cartUI extends javax.swing.JFrame {
                         obj.itemCart.remove(index);
                     }
                 }
+            } else {
+                obj.itemCart.remove(index);
             }
             
             java.awt.EventQueue.invokeLater(new Runnable() {
@@ -241,6 +256,16 @@ public class cartUI extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void addFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new foodSelectionUI().setVisible(true);
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_addFoodActionPerformed
 
     /**
      * @param args the command line arguments
