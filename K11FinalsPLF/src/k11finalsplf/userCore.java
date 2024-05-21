@@ -11,6 +11,13 @@ public class userCore {
     public static String[] sectionB = new String[100];
     public static String[] sectionC = new String[100];
     public static ArrayList<String> itemCart = new ArrayList<>();
+    public static double moviePrice1 = 150;
+    public static double moviePrice2 = 200;
+    public static double moviePrice3 = 250;
+    public static double popcornPrice = 50;
+    public static double hotdogPrice = 45;
+    public static double cokePrice = 25;
+    
     
     public void userCoreStart() {
         try {
@@ -121,7 +128,19 @@ public class userCore {
             writer.newLine();
 
             for (String i : cart) {
-                writer.write(i);
+                if (i.startsWith("Godfather")) {
+                    writer.write(i + " P" + moviePrice1);
+                } else if (i.startsWith("Movie 2")) {
+                    writer.write(i + " P" + moviePrice2);
+                } else if (i.startsWith("Movie 3")) {
+                    writer.write(i + " P" + moviePrice3);
+                } else if (i.startsWith("Popcorn")) {
+                    writer.write(i + " P" + popcornPrice);
+                } else if (i.startsWith("Hotdog")) {
+                    writer.write(i + " P" + hotdogPrice );
+                } else if (i.startsWith("Coke")) {
+                    writer.write(i + " P" + cokePrice );
+                }  
                 writer.newLine();
             }
 

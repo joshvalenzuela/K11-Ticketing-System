@@ -19,7 +19,9 @@ public class cartUI extends javax.swing.JFrame {
      */
     private static DefaultListModel<String> listModel;
     userCore obj = new userCore();
-    public static double total;
+    private static double total;
+    
+    
     public cartUI() {
         
         initComponents();
@@ -39,27 +41,27 @@ public class cartUI extends javax.swing.JFrame {
         total = 0;
         for (String i : obj.itemCart) {
             if (i.startsWith("Godfather")) {
-                int price = 150;
+                double price = obj.moviePrice1;
                 listModel.addElement(i + " P" + price);
                 total += price;
             } else if (i.startsWith("Movie 2")) {
-                int price = 200;
+                double price = obj.moviePrice2;
                 listModel.addElement(i + " P" + price);
                 total += price;
             } else if (i.startsWith("Movie 3")) {
-                int price = 200;
+                double price = obj.moviePrice3;
                 listModel.addElement(i + " P" + price);
                 total += price;
             } else if (i.startsWith("Popcorn")) {
-                int price = 50;
+                double price = obj.popcornPrice;
                 listModel.addElement(i + " P" + price);
                 total += price;
             } else if (i.startsWith("Hotdog")) {
-                int price = 45;
+                double price = obj.hotdogPrice;
                 listModel.addElement(i + " P" + price);
                 total += price;
             } else if (i.startsWith("Coke")) {
-                int price = 25;
+                double price = obj.cokePrice;
                 listModel.addElement(i + " P" + price);
                 total += price;
             }
@@ -175,40 +177,49 @@ public class cartUI extends javax.swing.JFrame {
 
     private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
         // TODO add your handling code here:
-        while (true) {
-            try {
-                boolean confirmBool = false;
-                confirmBool = (0 == (JOptionPane.showConfirmDialog(this, "Would you like to checkout?")));
-                if (confirmBool) {
-                    double userCash = Integer.parseInt(JOptionPane.showInputDialog(this, "Please input cash: "));
-                    if (userCash < total) {
-                        JOptionPane.showMessageDialog(this, "Error! Please input sufficient cash."); 
-                        continue;
-                    } else {
-                        double change = userCash - total;
-                        try {
-                            for (String i : obj.itemCart) {
-                                if (i.startsWith("Godfather")) {
-                                    obj.savetoFile("godfatherSeats.txt");
-                                } else if (i.startsWith("Movie 2")) {
-                                    obj.savetoFile("movie2.txt");
-                                } else if (i.startsWith("Movie 3")) {
-                                    obj.savetoFile("movie3.txt");
-                                } 
-                                
+        if (total == 0) {
+            JOptionPane.showMessageDialog(this, "Error! Your cart is empty!");
+        } else {
+            while (true) {
+                try {
+                    boolean confirmBool = false;
+                    confirmBool = (0 == (JOptionPane.showConfirmDialog(this, "Would you like to checkout?")));
+                    if (confirmBool) {
+                        double userCash = Integer.parseInt(JOptionPane.showInputDialog(this, "Please input cash: "));
+                        if (userCash < total) {
+                            JOptionPane.showMessageDialog(this, "Error! Please input sufficient cash."); 
+                            continue;
+                        } else {
+                            double change = userCash - total;
+                            try {
+                                for (String i : obj.itemCart) {
+                                    if (i.startsWith("Godfather")) {
+                                        obj.savetoFile("godfatherSeats.txt");
+                                    } else if (i.startsWith("Movie 2")) {
+                                        obj.savetoFile("movie2.txt");
+                                    } else if (i.startsWith("Movie 3")) {
+                                        obj.savetoFile("movie3.txt");
+                                    } 
+
+                                }
+                                obj.saveReceipt(obj.itemCart, total, change, userCash);
+                                java.awt.EventQueue.invokeLater(new Runnable() {
+                                    public void run() {
+                                        new receiptUI(userCash, total, change).setVisible(true);
+                                    }
+                                });
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                            obj.saveReceipt(obj.itemCart, total, change, userCash);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            this.dispose();
                         }
-                        this.dispose();
-                    }
-                    break;
-                } else {
-                    break;
-                } 
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Error! Please input only numeric values."); 
+                        break;
+                    } else {
+                        break;
+                    } 
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(this, "Error! Please input only numeric values."); 
+                }
             }
         }
     }//GEN-LAST:event_checkoutButtonActionPerformed
