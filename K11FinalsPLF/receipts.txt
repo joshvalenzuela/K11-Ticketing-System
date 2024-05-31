@@ -1,0 +1,74 @@
+// Start of Receipt //
+Godfather: A14-5
+Hotdog
+Coke
+Popcorn
+20/05/2024 18:22:11
+Cash given: 3000.0
+Total: 270.0
+Change: 2730.0
+// End of Receipt //
+
+// Start of Receipt //
+Movie 1: A12-smirk
+31/05/2024 15:07:54
+Cash given: 159.0
+Total: 150.0
+Change: 9.0
+// End of Receipt //
+
+// Start of Receipt //
+Movie 1: A11-gyatt P150.0
+Coke P25.0
+31/05/2024 17:52:51
+Cash given: 200.0
+Total: 175.0
+Change: 25.0
+// End of Receipt //
+
+// Start of Receipt //
+Movie 1: A15-123 P150.0
+Hotdog P45.0
+31/05/2024 17:53:57
+Cash given: 200.0
+Total: 195.0
+Change: 5.0
+// End of Receipt //
+
+// Start of Receipt //
+Movie 1: A5-234 P150.02
+Coke P25.0
+31/05/2024 20:17:18
+Cash given: 200.0
+Total: 175.02
+Change: 24.97999999999999
+// End of Receipt //
+
+// Start of Receipt //
+Movie 1: A4-123 P150.02
+31/05/2024 20:21:30
+Cash given: 150.02
+Total: 150.02
+Change: 0.0
+// End of Receipt //
+
+// Start of Receipt //
+Movie 1: A100-123 P150.0
+Hotdog P45.0
+31/05/2024 20:54:53
+Cash given: 200.0
+Total: 195.0
+Change: 5.0
+// End of Receipt //
+
+// Start of Receipt //
+Movie 1: A99-123 P150.0
+Hotdog P34.7
+Popcorn P55.7
+Coke P30.0
+31/05/2024 21:03:02
+Cash given: 300.0
+Total: 270.4
+Change: 29.600000000000023
+// End of Receipt //
+
