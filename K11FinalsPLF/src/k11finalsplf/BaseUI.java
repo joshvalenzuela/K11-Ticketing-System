@@ -133,7 +133,9 @@ public class BaseUI extends javax.swing.JFrame {
         }
         //</editor-fold>
         userCore obj = new userCore();
+        adminCore obj2 = new adminCore();
         /* Create and display the form */
+        obj2.adminCoreStart();
         obj.userCoreStart();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

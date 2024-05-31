@@ -43,7 +43,7 @@ public class foodSelectionUI extends javax.swing.JFrame {
         popcornImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/k11finalsplf/popcorn.png"))); // NOI18N
 
         popcornLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        popcornLabel.setText("Popcorn P50");
+        popcornLabel.setText("Popcorn P" + obj.popcornPrice );
 
         popcornAdd.setText("Order");
         popcornAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +55,7 @@ public class foodSelectionUI extends javax.swing.JFrame {
         hotdogImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/k11finalsplf/hotdog.png"))); // NOI18N
 
         hotdogLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        hotdogLabel.setText("Hotdog P45");
+        hotdogLabel.setText("Hotdog P" + obj.hotdogPrice);
 
         hotdogAdd.setText("Order");
         hotdogAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class foodSelectionUI extends javax.swing.JFrame {
         cokeImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/k11finalsplf/coke.png"))); // NOI18N
 
         cokeLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        cokeLabel.setText("Coke P25");
+        cokeLabel.setText("Coke P" + obj.cokePrice);
 
         cokeAdd.setText("Order");
         cokeAdd.addActionListener(new java.awt.event.ActionListener() {

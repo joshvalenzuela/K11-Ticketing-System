@@ -11,17 +11,18 @@ public class userCore {
     public static String[] sectionB = new String[100];
     public static String[] sectionC = new String[100];
     public static ArrayList<String> itemCart = new ArrayList<>();
-    public static double moviePrice1 = 150;
-    public static double moviePrice2 = 200;
-    public static double moviePrice3 = 250;
-    public static double popcornPrice = 50;
-    public static double hotdogPrice = 45;
-    public static double cokePrice = 25;
+    public static double moviePrice1;
+    public static double moviePrice2;
+    public static double moviePrice3;
+    public static double popcornPrice;
+    public static double hotdogPrice;
+    public static double cokePrice;
     
     
     public void userCoreStart() {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("godfatherSeats.txt"));
+            
+            BufferedReader reader = new BufferedReader(new FileReader("movie1.txt"));
             String line = reader.readLine();
             int readcounter = 0;
             sectionA[readcounter++] = line;
@@ -47,14 +48,25 @@ public class userCore {
                 sectionC[readcounter++] = line;
             }
             reader3.close();
+            
+            BufferedReader reader4 = new BufferedReader(new FileReader("prices.txt"));
+            
+            moviePrice1 = Double.parseDouble(reader4.readLine());
+            moviePrice2 = Double.parseDouble(reader4.readLine());
+            moviePrice3 = Double.parseDouble(reader4.readLine());
+            popcornPrice = Double.parseDouble(reader4.readLine());
+            hotdogPrice = Double.parseDouble(reader4.readLine());
+            cokePrice = Double.parseDouble(reader4.readLine());
+            
+            reader4.close();
         } catch (IOException e) {
-            System.out.println("Seat files is missing! Contact admin.");
+            System.out.println("Seat or price files is missing! Contact admin.");
             e.printStackTrace();
         }
     }
     
     public String[] readSeatFile(String fileName) {
-        if (fileName.equals("godfatherSeats.txt")) {
+        if (fileName.equals("movie1.txt")) {
             return sectionA;
         } else if (fileName.equals("movie2.txt")) {
             return sectionB;
@@ -67,8 +79,8 @@ public class userCore {
 
     public void savetoFile(String fileName) throws IOException {
         for (String i : itemCart) {
-            if (i.startsWith("Godfather")) {
-                BufferedWriter writer = new BufferedWriter(new FileWriter("godfatherSeats.txt", false));
+            if (i.startsWith("Movie 1")) {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("movie1.txt", false));
                 for (String s : sectionA) {
                     writer.write(s);
                     writer.newLine();
@@ -99,7 +111,7 @@ public class userCore {
     }
     
     public void movieAddtoCart(int index, String seatNumber, String movieName){
-        if (movieName.equals("Godfather")) {
+        if (movieName.equals("Movie 1")) {
             sectionA[index] = seatNumber;
         } else if (movieName.equals("Movie 2")) {
             sectionB[index] = seatNumber;
@@ -128,7 +140,7 @@ public class userCore {
             writer.newLine();
 
             for (String i : cart) {
-                if (i.startsWith("Godfather")) {
+                if (i.startsWith("Movie 1")) {
                     writer.write(i + " P" + moviePrice1);
                 } else if (i.startsWith("Movie 2")) {
                     writer.write(i + " P" + moviePrice2);

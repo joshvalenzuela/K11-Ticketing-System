@@ -44,7 +44,7 @@ public class receiptUI extends javax.swing.JFrame {
         listModel = new DefaultListModel<>();
         total = 0;
         for (String i : obj.itemCart) {
-            if (i.startsWith("Godfather")) {
+            if (i.startsWith("Movie 1")) {
                 double price = obj.moviePrice1;
                 listModel.addElement(i + " P" + price);
                 total += price;

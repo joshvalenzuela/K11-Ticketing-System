@@ -42,7 +42,7 @@ public class movieSelectionUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Godfather");
+        jLabel1.setText("Movie 1");
 
         selectMovie1.setText("Book");
         selectMovie1.addActionListener(new java.awt.event.ActionListener() {
@@ -160,7 +160,7 @@ public class movieSelectionUI extends javax.swing.JFrame {
         this.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new movieTicketUI("godfatherSeats.txt", "Godfather").setVisible(true);
+                new movieTicketUI("movie1.txt", "Movie 1").setVisible(true);
                 
             }
             

@@ -40,7 +40,7 @@ public class cartUI extends javax.swing.JFrame {
         listModel = new DefaultListModel<>();
         total = 0;
         for (String i : obj.itemCart) {
-            if (i.startsWith("Godfather")) {
+            if (i.startsWith("Movie 1")) {
                 double price = obj.moviePrice1;
                 listModel.addElement(i + " P" + price);
                 total += price;
@@ -177,15 +177,22 @@ public class cartUI extends javax.swing.JFrame {
 
     private void checkoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutButtonActionPerformed
         // TODO add your handling code here:
+        
         if (total == 0) {
             JOptionPane.showMessageDialog(this, "Error! Your cart is empty!");
         } else {
             while (true) {
                 try {
+                    double userCash;
                     boolean confirmBool = false;
                     confirmBool = (0 == (JOptionPane.showConfirmDialog(this, "Would you like to checkout?")));
                     if (confirmBool) {
-                        double userCash = Integer.parseInt(JOptionPane.showInputDialog(this, "Please input cash: "));
+                        String userCashInput = JOptionPane.showInputDialog(this, "Please input cash: ");
+                        if (userCashInput == null) {
+                            continue;
+                        } else {
+                            userCash = Double.parseDouble(userCashInput);
+                        }
                         if (userCash < total) {
                             JOptionPane.showMessageDialog(this, "Error! Please input sufficient cash."); 
                             continue;
@@ -193,8 +200,8 @@ public class cartUI extends javax.swing.JFrame {
                             double change = userCash - total;
                             try {
                                 for (String i : obj.itemCart) {
-                                    if (i.startsWith("Godfather")) {
-                                        obj.savetoFile("godfatherSeats.txt");
+                                    if (i.startsWith("Movie 1")) {
+                                        obj.savetoFile("movie1.txt");
                                     } else if (i.startsWith("Movie 2")) {
                                         obj.savetoFile("movie2.txt");
                                     } else if (i.startsWith("Movie 3")) {
@@ -229,8 +236,8 @@ public class cartUI extends javax.swing.JFrame {
         int index = jList1.getSelectedIndex();
         
         if (index != -1) {    
-            if ((obj.itemCart.get(index)).startsWith("Godfather")) {
-                String stripped = obj.itemCart.get(index).replace("Godfather: ", "");
+            if ((obj.itemCart.get(index)).startsWith("Movie 1")) {
+                String stripped = obj.itemCart.get(index).replace("Movie 1: ", "");
                 for (int i = 0; i < obj.sectionA.length; i++) {
                     if (stripped.equals(obj.sectionA[i])) {
                         obj.sectionA[i] = "A" + (i + 1);
