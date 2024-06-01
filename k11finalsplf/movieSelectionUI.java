@@ -9,7 +9,7 @@ package k11finalsplf;
  * @author Josh
  */
 public class movieSelectionUI extends javax.swing.JFrame {
-
+    userCore obj = new userCore();
     /**
      * Creates new form movieSelectionUI
      */
@@ -42,6 +42,7 @@ public class movieSelectionUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 1700));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -81,9 +82,9 @@ public class movieSelectionUI extends javax.swing.JFrame {
         jPanel1.add(selectMovie2);
         selectMovie2.setBounds(440, 880, 180, 90);
 
-        jLabel4.setText("175 | Crime, Drama | 9.0 rating | 300");
+        jLabel4.setText("P" + obj.moviePrice2 + " | Comedy, Drama | 11AM-12PM, 4PM-5PM");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(440, 850, 192, 16);
+        jLabel4.setBounds(440, 850, 360, 16);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setText("THE HUNCHBACK");
@@ -99,9 +100,9 @@ public class movieSelectionUI extends javax.swing.JFrame {
         jPanel1.add(selectMovie3);
         selectMovie3.setBounds(440, 1380, 180, 90);
 
-        jLabel6.setText("175 | Crime, Drama | 9.0 rating | 300");
+        jLabel6.setText("P" + obj.moviePrice3 + " | Thriller, Drama | 6PM-7PM, 8PM-9PM");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(440, 1350, 220, 16);
+        jLabel6.setBounds(440, 1350, 340, 16);
 
         movieImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/k11finalsplf/DugaNiDulaca.jpg"))); // NOI18N
         jPanel1.add(movieImage2);
@@ -115,9 +116,9 @@ public class movieSelectionUI extends javax.swing.JFrame {
         jPanel1.add(movieImage1);
         movieImage1.setBounds(10, 1090, 400, 509);
 
-        jLabel2.setText("175 | Crime, Drama | 9.0 rating | 300");
+        jLabel2.setText("P" + obj.moviePrice1 + " | Tragedy, Drama | 8AM-10AM, 1PM-3PM");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(450, 350, 193, 16);
+        jLabel2.setBounds(440, 350, 330, 16);
 
         jScrollPane1.setViewportView(jPanel1);
 
