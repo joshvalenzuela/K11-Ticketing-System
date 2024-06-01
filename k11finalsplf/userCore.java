@@ -79,7 +79,7 @@ public class userCore {
 
     public void savetoFile(String fileName) throws IOException {
         for (String i : itemCart) {
-            if (i.startsWith("Movie 1")) {
+            if (i.startsWith("Duga ni Dulaca")) {
                 BufferedWriter writer = new BufferedWriter(new FileWriter("movie1.txt", false));
                 for (String s : sectionA) {
                     writer.write(s);
@@ -87,7 +87,7 @@ public class userCore {
                 }
                 writer.flush();
                 writer.close();
-            } else if (i.startsWith("Movie 2")) {
+            } else if (i.startsWith("Ricarte Mantinir")) {
                 BufferedWriter writer2 = new BufferedWriter(new FileWriter("movie2.txt", false));
                 for (String s : sectionB) {
                     writer2.write(s);
@@ -95,7 +95,7 @@ public class userCore {
                 }
                 writer2.flush();
                 writer2.close();
-            } else if (i.startsWith("Movie 3")) {
+            } else if (i.startsWith("The Hunchback")) {
                 BufferedWriter writer3 = new BufferedWriter(new FileWriter("movie3.txt", false));
                 for (String s : sectionC) {
                     writer3.write(s);
@@ -111,11 +111,11 @@ public class userCore {
     }
     
     public void movieAddtoCart(int index, String seatNumber, String movieName){
-        if (movieName.equals("Movie 1")) {
+        if (movieName.equals("Duga ni Dulaca")) {
             sectionA[index] = seatNumber;
-        } else if (movieName.equals("Movie 2")) {
+        } else if (movieName.equals("Ricarte Mantinir")) {
             sectionB[index] = seatNumber;
-        } else if (movieName.equals("Movie 3")) {
+        } else if (movieName.equals("The Hunchback")) {
             sectionC[index] = seatNumber;
         }
         itemCart.add(movieName + ": " + seatNumber);
@@ -131,7 +131,7 @@ public class userCore {
         itemCart.add(foodName);
     }
     
-    public void saveReceipt(ArrayList<String> cart, double total, double change, double userCash) {
+    public void saveReceipt(ArrayList<String> cart, double total) {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("receipts.txt", true));
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
@@ -140,11 +140,11 @@ public class userCore {
             writer.newLine();
 
             for (String i : cart) {
-                if (i.startsWith("Movie 1")) {
+                if (i.startsWith("Duga ni Dulaca")) {
                     writer.write(i + " P" + moviePrice1);
-                } else if (i.startsWith("Movie 2")) {
+                } else if (i.startsWith("Ricarte Mantinir")) {
                     writer.write(i + " P" + moviePrice2);
-                } else if (i.startsWith("Movie 3")) {
+                } else if (i.startsWith("The Hunchback")) {
                     writer.write(i + " P" + moviePrice3);
                 } else if (i.startsWith("Popcorn")) {
                     writer.write(i + " P" + popcornPrice);
@@ -158,11 +158,7 @@ public class userCore {
 
             writer.write(formatter.format(date));
             writer.newLine();
-            writer.write("Cash given: " + userCash);
-            writer.newLine();
             writer.write("Total: " + total);
-            writer.newLine();
-            writer.write("Change: " + change);
             writer.newLine();
             writer.write("// End of Receipt //");
             writer.newLine();

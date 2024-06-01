@@ -132,7 +132,7 @@ public class movieSelectionUI extends javax.swing.JFrame {
         this.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new movieTicketUI("movie1.txt", "Movie 1").setVisible(true);
+                new movieTicketUI("movie1.txt", "Duga ni Dulaca").setVisible(true);
                 
             }
             
@@ -144,7 +144,7 @@ public class movieSelectionUI extends javax.swing.JFrame {
         this.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new movieTicketUI("movie2.txt", "Movie 2").setVisible(true);
+                new movieTicketUI("movie2.txt", "Ricarte Mantinir").setVisible(true);
                 
             }
         });
@@ -155,7 +155,7 @@ public class movieSelectionUI extends javax.swing.JFrame {
         this.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new movieTicketUI("movie3.txt", "Movie 3").setVisible(true);
+                new movieTicketUI("movie3.txt", "The Hunchback").setVisible(true);
                 
             }
         });

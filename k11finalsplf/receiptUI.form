@@ -28,22 +28,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="cashGivenLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jScrollPane1" pref="269" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="changeLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="totalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="closeButton" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="totalLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -55,16 +51,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="292" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="cashGivenLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="closeButton" alignment="1" min="-2" pref="47" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="totalLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="changeLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="totalLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="closeButton" min="-2" pref="47" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -85,7 +74,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="listModel = new DefaultListModel&lt;&gt;();&#xa;total = 0;&#xa;for (String i : obj.itemCart) {&#xa;    if (i.startsWith(&quot;Movie 1&quot;)) {&#xa;        double price = obj.moviePrice1;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 2&quot;)) {&#xa;        double price = obj.moviePrice2;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Movie 3&quot;)) {&#xa;        double price = obj.moviePrice3;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Popcorn&quot;)) {&#xa;        double price = obj.popcornPrice;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Hotdog&quot;)) {&#xa;        double price = obj.hotdogPrice;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Coke&quot;)) {&#xa;        double price = obj.cokePrice;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    }&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="listModel = new DefaultListModel&lt;&gt;();&#xa;total = 0;&#xa;for (String i : obj.itemCart) {&#xa;    if (i.startsWith(&quot;Duga ni Dulaca&quot;)) {&#xa;        double price = obj.moviePrice1;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Ricarte Mantinir&quot;)) {&#xa;        double price = obj.moviePrice2;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;The Hunchback&quot;)) {&#xa;        double price = obj.moviePrice3;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Popcorn&quot;)) {&#xa;        double price = obj.popcornPrice;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Hotdog&quot;)) {&#xa;        double price = obj.hotdogPrice;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    } else if (i.startsWith(&quot;Coke&quot;)) {&#xa;        double price = obj.cokePrice;&#xa;        listModel.addElement(i + &quot; P&quot; + price);&#xa;        total += price;&#xa;    }&#xa;}"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
@@ -99,16 +88,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="cashGivenLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;Cash Given: P&quot; + cashGiven" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="totalLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -116,16 +95,6 @@
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="&quot;Total: P&quot; + total" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="changeLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="&quot;Change: P&quot; + change" type="code"/>
         </Property>
       </Properties>
     </Component>

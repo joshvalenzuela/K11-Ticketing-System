@@ -40,15 +40,15 @@ public class cartUI extends javax.swing.JFrame {
         listModel = new DefaultListModel<>();
         total = 0;
         for (String i : obj.itemCart) {
-            if (i.startsWith("Movie 1")) {
+            if (i.startsWith("Duga ni Dulaca")) {
                 double price = obj.moviePrice1;
                 listModel.addElement(i + " P" + price);
                 total += price;
-            } else if (i.startsWith("Movie 2")) {
+            } else if (i.startsWith("Ricarte Mantinir")) {
                 double price = obj.moviePrice2;
                 listModel.addElement(i + " P" + price);
                 total += price;
-            } else if (i.startsWith("Movie 3")) {
+            } else if (i.startsWith("The Hunchback")) {
                 double price = obj.moviePrice3;
                 listModel.addElement(i + " P" + price);
                 total += price;
@@ -182,52 +182,35 @@ public class cartUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error! Your cart is empty!");
         } else {
             while (true) {
-                try {
-                    double userCash;
-                    boolean confirmBool = false;
-                    confirmBool = (0 == (JOptionPane.showConfirmDialog(this, "Would you like to checkout?")));
-                    if (confirmBool) {
-                        String userCashInput = JOptionPane.showInputDialog(this, "Please input cash: ");
-                        if (userCashInput == null) {
-                            continue;
-                        } else {
-                            userCash = Double.parseDouble(userCashInput);
-                        }
-                        if (userCash < total) {
-                            JOptionPane.showMessageDialog(this, "Error! Please input sufficient cash."); 
-                            continue;
-                        } else {
-                            double change = userCash - total;
-                            try {
-                                for (String i : obj.itemCart) {
-                                    if (i.startsWith("Movie 1")) {
-                                        obj.savetoFile("movie1.txt");
-                                    } else if (i.startsWith("Movie 2")) {
-                                        obj.savetoFile("movie2.txt");
-                                    } else if (i.startsWith("Movie 3")) {
-                                        obj.savetoFile("movie3.txt");
-                                    } 
+                boolean confirmBool = false;
+                confirmBool = (0 == (JOptionPane.showConfirmDialog(this, "Would you like to checkout?")));
+                if (confirmBool) {
+                    try {
+                        for (String i : obj.itemCart) {
+                            if (i.startsWith("Duga ni Dulaca")) {
+                                obj.savetoFile("movie1.txt");
+                            } else if (i.startsWith("Ricarte Mantinir")) {
+                                obj.savetoFile("movie2.txt");
+                            } else if (i.startsWith("The Hunchback")) {
+                                obj.savetoFile("movie3.txt");
+                            } 
 
-                                }
-                                obj.saveReceipt(obj.itemCart, total, change, userCash);
-                                java.awt.EventQueue.invokeLater(new Runnable() {
-                                    public void run() {
-                                        new receiptUI(userCash, total, change).setVisible(true);
-                                    }
-                                });
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            this.dispose();
                         }
-                        break;
-                    } else {
-                        break;
-                    } 
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this, "Error! Please input only numeric values."); 
+                        obj.saveReceipt(obj.itemCart, total);
+                        java.awt.EventQueue.invokeLater(new Runnable() {
+                            public void run() {
+                                new receiptUI(total).setVisible(true);
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    this.dispose();
+                    break;
+                } else {
+                    break;
                 }
-            }
+            } 
         }
     }//GEN-LAST:event_checkoutButtonActionPerformed
 
@@ -236,24 +219,24 @@ public class cartUI extends javax.swing.JFrame {
         int index = jList1.getSelectedIndex();
         
         if (index != -1) {    
-            if ((obj.itemCart.get(index)).startsWith("Movie 1")) {
-                String stripped = obj.itemCart.get(index).replace("Movie 1: ", "");
+            if ((obj.itemCart.get(index)).startsWith("Duga ni Dulaca")) {
+                String stripped = obj.itemCart.get(index).replace("Duga ni Dulaca: ", "");
                 for (int i = 0; i < obj.sectionA.length; i++) {
                     if (stripped.equals(obj.sectionA[i])) {
                         obj.sectionA[i] = "A" + (i + 1);
                         obj.itemCart.remove(index);
                     }
                 }
-            } else if ((obj.itemCart.get(index)).startsWith("Movie 2")) {
-                String stripped = obj.itemCart.get(index).replace("Movie 2: ", "");
+            } else if ((obj.itemCart.get(index)).startsWith("Ricarte Mantinir")) {
+                String stripped = obj.itemCart.get(index).replace("Ricarte Mantinir: ", "");
                 for (int i = 0; i < obj.sectionB.length; i++) {
                     if (stripped.equals(obj.sectionB[i])) {
                         obj.sectionB[i] = "A" + (i + 1);
                         obj.itemCart.remove(index);
                     }
                 }
-            } else if ((obj.itemCart.get(index)).startsWith("Movie 3")) {
-                String stripped = obj.itemCart.get(index).replace("Movie 3: ", "");
+            } else if ((obj.itemCart.get(index)).startsWith("The Hunchback")) {
+                String stripped = obj.itemCart.get(index).replace("The Hunchback: ", "");
                 for (int i = 0; i < obj.sectionC.length; i++) {
                     if (stripped.equals(obj.sectionC[i])) {
                         obj.sectionC[i] = "A" + (i + 1);

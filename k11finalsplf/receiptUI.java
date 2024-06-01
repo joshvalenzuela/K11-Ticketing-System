@@ -13,21 +13,17 @@ import javax.swing.DefaultListModel;
  */
 public class receiptUI extends javax.swing.JFrame {
     userCore obj = new userCore();
-    private static double cashGiven;
     private static double total;
-    private static double change;
     private static DefaultListModel<String> listModel;
     /**
      * Creates new form receiptUI
-     * @param cash
+     * 
      * @param totall
-     * @param changee
-     * @param cart
+     * 
+     * 
      */
-    public receiptUI(double cash, double totall, double changee) {
-        cashGiven = cash;
+    public receiptUI(double totall) {
         total = totall;
-        change = changee;
         initComponents();
     }
 
@@ -44,15 +40,15 @@ public class receiptUI extends javax.swing.JFrame {
         listModel = new DefaultListModel<>();
         total = 0;
         for (String i : obj.itemCart) {
-            if (i.startsWith("Movie 1")) {
+            if (i.startsWith("Duga ni Dulaca")) {
                 double price = obj.moviePrice1;
                 listModel.addElement(i + " P" + price);
                 total += price;
-            } else if (i.startsWith("Movie 2")) {
+            } else if (i.startsWith("Ricarte Mantinir")) {
                 double price = obj.moviePrice2;
                 listModel.addElement(i + " P" + price);
                 total += price;
-            } else if (i.startsWith("Movie 3")) {
+            } else if (i.startsWith("The Hunchback")) {
                 double price = obj.moviePrice3;
                 listModel.addElement(i + " P" + price);
                 total += price;
@@ -72,9 +68,7 @@ public class receiptUI extends javax.swing.JFrame {
         }
         jList1 = new javax.swing.JList<>();
         closeButton = new javax.swing.JButton();
-        cashGivenLabel = new javax.swing.JLabel();
         totalLabel = new javax.swing.JLabel();
-        changeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Receipt");
@@ -89,14 +83,8 @@ public class receiptUI extends javax.swing.JFrame {
             }
         });
 
-        cashGivenLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cashGivenLabel.setText("Cash Given: P" + cashGiven);
-
         totalLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         totalLabel.setText("Total: P" + total);
-
-        changeLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        changeLabel.setText("Change: P" + change);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -106,18 +94,15 @@ public class receiptUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cashGivenLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(changeLabel)
-                                    .addComponent(totalLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18))))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(totalLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,14 +110,9 @@ public class receiptUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(cashGivenLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(closeButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(totalLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(changeLabel)))
+                .addComponent(totalLabel)
+                .addGap(27, 27, 27)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
 
@@ -177,8 +157,6 @@ public class receiptUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel cashGivenLabel;
-    private javax.swing.JLabel changeLabel;
     private javax.swing.JButton closeButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
