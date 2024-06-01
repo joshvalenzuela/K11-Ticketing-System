@@ -69,6 +69,7 @@ public class receiptUI extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         closeButton = new javax.swing.JButton();
         totalLabel = new javax.swing.JLabel();
+        rateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Receipt");
@@ -86,6 +87,13 @@ public class receiptUI extends javax.swing.JFrame {
         totalLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         totalLabel.setText("Total: P" + total);
 
+        rateButton.setText("Rate Us");
+        rateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rateButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,12 +106,17 @@ public class receiptUI extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(rateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(totalLabel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {closeButton, rateButton});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -112,7 +125,9 @@ public class receiptUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(totalLabel)
                 .addGap(27, 27, 27)
-                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -124,6 +139,16 @@ public class receiptUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_closeButtonActionPerformed
+
+    private void rateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rateButtonActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new rateUI().setVisible(true);
+            }
+        });
+        this.dispose();
+    }//GEN-LAST:event_rateButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +185,7 @@ public class receiptUI extends javax.swing.JFrame {
     private javax.swing.JButton closeButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton rateButton;
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 }

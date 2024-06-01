@@ -32,7 +32,9 @@
                           <Component id="jScrollPane1" pref="269" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="closeButton" min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="rateButton" linkSize="1" min="-2" pref="90" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="closeButton" linkSize="1" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
@@ -53,7 +55,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="totalLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="closeButton" min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="closeButton" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="rateButton" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -97,6 +102,14 @@
           <Connection code="&quot;Total: P&quot; + total" type="code"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="rateButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rate Us"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rateButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
